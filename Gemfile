@@ -1,28 +1,40 @@
 source 'https://rubygems.org'
-
+ruby '2.2.0'
 
 gem 'rails', '4.2.1'
-
 gem 'rails-api'
-
-gem 'spring', :group => :development
-
-
 gem 'pg'
+gem 'responders', '~> 2.0'
+gem 'active_model_serializers'
 
+# Models
+gem 'classy_enum', '4.0.0'
 
+# Users
+gem 'devise', '3.4.1'
+gem 'bcrypt', '3.1.9'
+# gem 'oauth2', '1.0.0'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# Assets
+gem "paperclip", "~> 4.2"
+gem 'aws-sdk', '< 2.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# Pending
+# gem 'kaminari', '0.16.2'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# External APIs
+gem 'stripe', '1.21.0'
 
-# Deploy with Capistrano
-# gem 'capistrano', :group => :development
+group :development, :test do
+  gem 'byebug', '3.5.1'
+  gem 'web-console', '2.0.0'
+  gem 'figaro', '1.0.0'
+  gem 'spring', '1.2.0'
+  gem 'awesome_print'
+  gem 'annotate'
+end
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :production do
+  gem 'rails_12factor'
+  gem 'unicorn'
+end

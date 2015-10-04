@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @events = Event.all  #original content from scaffolding - T
 
 
-    render json: @events
+    respond_with @events
   end
 
   # GET /events/1
@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @tiers = @event.tiers.sort_by(&:level)
     @order = Order.new
 
-    render json: @event
+    respond_with @event
   end
 
 
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     5.times { @event.tiers.build }
     gon.push(stripe_authorized: @event.user.stripe_authorized?, stripe_message: session.delete(:stripe))
     
-    render json: @event
+    respond_with @event
   end
 
   # POST /events
@@ -39,9 +39,9 @@ class EventsController < ApplicationController
 
     if @event.save
       redirect_to @event, notice: 'Your event was created successfully! Thanks for using Ticket Win.'
-      render json: @event, status: :created, location: @event
+      respond_with @event, status: :created, location: @event
     else
-      render json: @event.errors, status: :unprocessable_entity
+      respond_with @event.errors, status: :unprocessable_entity
     end
   end
 
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       head :no_content
     else
-      render json: @event.errors, status: :unprocessable_entity
+      respond_with @event.errors, status: :unprocessable_entity
     end
   end
 
