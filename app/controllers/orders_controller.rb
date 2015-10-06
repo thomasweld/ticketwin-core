@@ -6,13 +6,13 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
 
-    render json: @orders
+    respond_with @orders
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
-    render json: @order
+    respond_with @order
   end
 
   # POST /orders
@@ -21,9 +21,9 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @order.save
-      render json: @order, status: :created, location: @order
+      respond_with @order, status: :created, location: @order
     else
-      render json: @order.errors, status: :unprocessable_entity
+      respond_with @order.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
     if @order.update(order_params)
       head :no_content
     else
-      render json: @order.errors, status: :unprocessable_entity
+      respond_with @order.errors, status: :unprocessable_entity
     end
   end
 

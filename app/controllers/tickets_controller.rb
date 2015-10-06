@@ -6,13 +6,13 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
 
-    render json: @tickets
+    respond_with @tickets
   end
 
   # GET /tickets/1
   # GET /tickets/1.json
   def show
-    render json: @ticket
+    respond_with @ticket
   end
 
   # POST /tickets
@@ -21,9 +21,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      render json: @ticket, status: :created, location: @ticket
+      respond_with @ticket, status: :created, location: @ticket
     else
-      render json: @ticket.errors, status: :unprocessable_entity
+      respond_with @ticket.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +35,7 @@ class TicketsController < ApplicationController
     if @ticket.update(ticket_params)
       head :no_content
     else
-      render json: @ticket.errors, status: :unprocessable_entity
+      respond_with @ticket.errors, status: :unprocessable_entity
     end
   end
 

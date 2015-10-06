@@ -6,13 +6,13 @@ class OrganizationsController < ApplicationController
   def index
     @organizations = Organization.all
 
-    render json: @organizations
+    respond_with @organizations
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    render json: @organization
+    respond_with @organization
   end
 
   # POST /organizations
@@ -21,9 +21,9 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
 
     if @organization.save
-      render json: @organization, status: :created, location: @organization
+      respond_with @organization, status: :created, location: @organization
     else
-      render json: @organization.errors, status: :unprocessable_entity
+      respond_with @organization.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +35,7 @@ class OrganizationsController < ApplicationController
     if @organization.update(organization_params)
       head :no_content
     else
-      render json: @organization.errors, status: :unprocessable_entity
+      respond_with @organization.errors, status: :unprocessable_entity
     end
   end
 

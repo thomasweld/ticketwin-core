@@ -6,13 +6,13 @@ class TiersController < ApplicationController
   def index
     @tiers = Tier.all
 
-    render json: @tiers
+    respond_with @tiers
   end
 
   # GET /tiers/1
   # GET /tiers/1.json
   def show
-    render json: @tier
+    respond_with @tier
   end
 
   # POST /tiers
@@ -21,9 +21,9 @@ class TiersController < ApplicationController
     @tier = Tier.new(tier_params)
 
     if @tier.save
-      render json: @tier, status: :created, location: @tier
+      respond_with @tier, status: :created, location: @tier
     else
-      render json: @tier.errors, status: :unprocessable_entity
+      respond_with @tier.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,7 +35,7 @@ class TiersController < ApplicationController
     if @tier.update(tier_params)
       head :no_content
     else
-      render json: @tier.errors, status: :unprocessable_entity
+      respond_with @tier.errors, status: :unprocessable_entity
     end
   end
 
