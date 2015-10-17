@@ -16,7 +16,22 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require "pry"
+require "capybara/rspec"
+require "factory_girl_rails"
+
 RSpec.configure do |config|
+
+  # Fixes: ArgumentError: Factory not registered
+  # http://stackoverflow.com/questions/24078768/argumenterror-factory-not-registered
+  config.include FactoryGirl::Syntax::Methods
+
+  config.before do
+    FactoryGirl.find_definitions
+  end
+
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
