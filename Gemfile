@@ -28,13 +28,20 @@ gem 'stripe', '1.21.0'
 group :development, :test do
   gem 'byebug', '3.5.1'
   gem 'rspec', '~> 3.3.0'
+  gem "factory_girl_rails", "~> 4.0"
   gem 'web-console', '2.0.0'
   gem 'figaro', '1.0.0'
   gem 'spring', '1.2.0'
   gem 'awesome_print'
   gem 'annotate'
   gem 'better_errors', '~> 2.1.1'
+end
 
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :production do
