@@ -5,7 +5,7 @@ FactoryGirl.define do
     # f.firstname { Faker::Name.first_name }
     # f.lastname { Faker::Name.last_name }
     f.title { Faker::Name.title }
-    f.description { Faker::Name.description }
+    f.description { Faker::Lorem.paragraph }
 
     # title "Fuggin Awesome"
     # description "A Fuggin Awesome party dude!"
