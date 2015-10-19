@@ -33,7 +33,7 @@ RSpec.describe Event, type: :model do
     expect(event.start_date).to be > (Date.today)
   end
 
-  it "has a end date later than the start date" do
+  it "has an end date later than the start date" do
     expect(event.end_date).to be > (event.start_date)
   end
 
