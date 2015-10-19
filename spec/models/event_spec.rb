@@ -10,11 +10,11 @@ RSpec.describe Event, type: :model do
   end
   
   it "has a title" do
-    expect(event.title).to_not eq(nil)
+    expect(event.title).to_not be_nil
   end
 
   it "has a description" do
-    expect(event.description).to_not eq(nil)    
+    expect(event.description).to_not be_nil   
   end
 
   it "has a start_date that's a valid datetime" do
@@ -26,7 +26,7 @@ RSpec.describe Event, type: :model do
   end
 
   it "has a location" do
-    expect(event.location).to_not eq(nil)
+    expect(event.location).to_not be_nil
   end
 
   it "has a start date" do
@@ -38,18 +38,18 @@ RSpec.describe Event, type: :model do
   end
 
   xit "has an image" do
-    expect(event.image_file_name).to_not eq(nil)
+    expect(event.image_file_name).to_not be_nil
     #expect(event.image_content_type).to eq(%w(png jpg bmp))
     #ask about why there are multiple image attributes
   end
 
   xit "has a user_id" do
-    expect(event.user_id).to_not eq(nil)
+    expect(event.user_id).to_not be_nil
     # but there will be a better test for this once the associations are properly set up
   end
 
   xit "has an oranization_id" do
-    expect(event.organization_id).to_not eq(nil)
+    expect(event.organization_id).to_not be_nil
     # but there will be a better test for this once the associations are properly set up
   end
 
