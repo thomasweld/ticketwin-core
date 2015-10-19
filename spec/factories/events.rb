@@ -5,7 +5,7 @@ FactoryGirl.define do
     title { Faker::Name.title }
     description { Faker::Lorem.paragraph }
     location { Faker::Address.city }
-    start_date { Faker::Date.forward(10) }
+    start_date { 5.days.from_now }
 
     # status should be automatically established upon creation and not hardcoded here
     status "pending_approval"

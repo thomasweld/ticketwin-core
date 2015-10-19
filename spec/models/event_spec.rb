@@ -18,11 +18,11 @@ RSpec.describe Event, type: :model do
   end
 
   it "has a start_date that's a valid datetime" do
-    expect(event.start_date.class).to eq(ActiveSupport::TimeWithZone)
+    expect(event.start_date).to be_an_instance_of ActiveSupport::TimeWithZone
   end
 
   it "has a end_date that's a valid datetime" do
-    expect(event.end_date.class).to eq(ActiveSupport::TimeWithZone)
+    expect(event.end_date).to be_an_instance_of ActiveSupport::TimeWithZone
   end
 
   it "has a location" do
