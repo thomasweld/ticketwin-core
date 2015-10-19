@@ -2,19 +2,50 @@ require 'spec_helper'
 
 RSpec.describe Event, type: :model do
 
+  let(:event) { create :event }
+
   it "has a valid factory" do
-    FactoryGirl.create(:event).should be_valid
+    expect(event).to be_valid
+  end
+  
+  it "has a title that's a string" do
+    expect(event.title.class).to eq(String)
   end
 
-  
-  it "has a title that's a string"
-  it "has a description that's text"
-  # it "has a start_date that's a datetime"
-  # it "has an end_date that's a datetime"
-  # it "has a user_id that's an integer"
-  # it "has a created_at that's a datetime"
-  # it "has an updated_at that's a datetime"
-  # it "has a status that's a string. Options: pending_approval, live, expired"
+  it "has a description that's text" do
+    expect(event.description.class).to eq(String)    
+  end
+
+  it "has a start_date that's a valid datetime" do
+    expect(event.start_date.class).to eq(ActiveSupport::TimeWithZone)
+  end
+
+  it "has a end_date that's a valid datetime" do
+    expect(event.end_date.class).to eq(ActiveSupport::TimeWithZone)
+  end
+
+  xit "has a user_id that's an integer" do
+    expect(event.user_id.class).to eq(Integer)
+  end
+
+  describe "status" do
+
+    xit "is 'pending_approval' upon creation of event" do
+      expect(event.status).to eq("pending_approval")
+    end
+
+    xit "is 'live' status during event" do
+      #before - set event status in proper way
+      expect(event.status).to eq("live")
+    end
+
+    xit "is 'expired' after event" do
+      #before - set event status in proper way
+      expect(event.status).to eq("after")
+    end
+
+  end
+
 
   # t.string   "image_file_name"
   # t.string   "image_content_type"
