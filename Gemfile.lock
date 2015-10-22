@@ -97,6 +97,7 @@ GEM
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     columnize (0.9.0)
+    database_cleaner (1.5.0)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -263,6 +264,7 @@ DEPENDENCIES
   byebug (= 3.5.1)
   capybara
   classy_enum (= 4.0.0)
+  database_cleaner
   devise (= 3.4.1)
   factory_girl_rails (~> 4.0)
   faker
@@ -280,3 +282,6 @@ DEPENDENCIES
   stripe (= 1.21.0)
   unicorn
   web-console (= 2.0.0)
+
+BUNDLED WITH
+   1.10.6

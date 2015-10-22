@@ -1,28 +1,19 @@
 require 'faker'
 
 FactoryGirl.define do
-  factory :event do |f|
-    # f.firstname { Faker::Name.first_name }
-    # f.lastname { Faker::Name.last_name }
-    f.title { Faker::Name.title }
-    f.description { Faker::Lorem.paragraph }
+  factory :event do
+    title { Faker::Name.title }
+    description { Faker::Lorem.paragraph }
+    location { Faker::Address.city }
+    start_date { 5.days.from_now }
 
-    # title "Fuggin Awesome"
-    # description "A Fuggin Awesome party dude!"
+    # status should be automatically established upon creation and not hardcoded here
+    status "pending_approval"
 
-    # t.string   "title",              null: false
-    # t.text     "description"
-    # t.datetime "start_date"
-    # t.datetime "end_date"
-    # t.integer  "user_id"
-    # t.datetime "created_at",         null: false
-    # t.datetime "updated_at",         null: false
-    # t.string   "status"
-    # t.string   "image_file_name"
+    image_file_name { Faker::Name.name }
+    
     # t.string   "image_content_type"
     # t.integer  "image_file_size"
     # t.datetime "image_updated_at"
-    # t.string   "location"
-    # t.integer  "organization_id"
   end
 end

@@ -35,6 +35,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'annotate'
   gem 'better_errors', '~> 2.1.1'
+  gem 'database_cleaner'
 end
 
 group :test do
