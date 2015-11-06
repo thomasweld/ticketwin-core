@@ -11,9 +11,14 @@ gem 'active_model_serializers'
 gem 'classy_enum', '4.0.0'
 
 # Users
-gem 'devise', '3.4.1'
+gem 'devise'
 gem 'bcrypt', '3.1.9'
 # gem 'oauth2', '1.0.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
+
 
 # Assets
 gem "paperclip", "~> 4.2"
@@ -28,6 +33,7 @@ gem 'stripe', '1.21.0'
 group :development, :test do
   gem 'byebug', '3.5.1'
   gem 'rspec', '~> 3.3.0'
+  gem 'rspec-rails', '~> 3.3', '>= 3.3.3'
   gem "factory_girl_rails", "~> 4.0"
   gem 'web-console', '2.0.0'
   gem 'figaro', '1.0.0'
