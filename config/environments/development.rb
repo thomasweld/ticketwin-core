@@ -1,4 +1,27 @@
 Rails.application.configure do
+
+
+ # http://sourcey.com/rails-4-omniauth-using-devise-with-twitter-facebook-and-linkedin/
+
+   # General Settings
+  config.app_domain = 'tcktwn.com'
+
+  # Mailer
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV["SMTP_SERVER"],
+    openssl_verify_mode: OpenSSL::SSL::VERIFY_NONE,
+    port: ENV["SMTP_PORT"].to_i,
+    domain: ENV["MAILER_DOMAIN"],
+    authentication: "plain",
+    enable_starttls_auto: false,
+    user_name: ENV["SMTP_USER"],
+    password: ENV["SMTP_PWD"]
+  }
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -15,6 +38,18 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+
+  # FROM DEVISE SETUP INSTRUCTIONS - T
+
+   # 1. Ensure you have defined default url options in your environments files. Here
+   #   is an example of default_url_options appropriate for a development environment
+   #   in config/environments/development.rb:
+
+   #     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+   #   In production, :host should be set to the actual host of your application.
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

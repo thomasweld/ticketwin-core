@@ -6,5 +6,9 @@ class ApplicationController < ActionController::API
   include ActionController::Serialization
 
   respond_to :json
+
+  before_action do
+    request.format = 'json' unless params[:format]
+  end
 end
 
