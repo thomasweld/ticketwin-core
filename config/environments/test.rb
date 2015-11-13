@@ -31,6 +31,9 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  # Added to make user factory work - see http://stackoverflow.com/questions/7182600/rspec-route-testing-and-hosts
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
   # Randomize the order test cases are executed.
   config.active_support.test_order = :random
 
