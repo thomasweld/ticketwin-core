@@ -13,6 +13,7 @@ gem 'classy_enum', '4.0.0'
 # Users
 gem 'devise'
 gem 'bcrypt', '3.1.9'
+gem 'doorkeeper'
 # gem 'oauth2', '1.0.0'
 gem 'omniauth'
 gem 'omniauth-twitter'
